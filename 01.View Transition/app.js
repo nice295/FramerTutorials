@@ -1,5 +1,13 @@
 (function() {
-  var bg, detail, main, myHeight, myWidth;
+  var animationDetailHide, animationDetailShow, bg, detail, device, main, myHeight, myWidth, showMain;
+
+  device = new Framer.DeviceView();
+
+  device.setupContext();
+
+  device.deviceType = "samsung-galaxy-note-5-gold";
+
+  device.contentScale = 1;
 
   myWidth = function(width) {
     return width * Screen.width / 360;
@@ -20,21 +28,44 @@
   });
 
   detail = new Layer({
+    x: myWidth(50),
     width: Screen.width,
     height: Screen.height,
     image: "images/View2.png"
   });
 
+  animationDetailShow = new Animation({
+    layer: detail,
+    properties: {
+      x: 0
+    },
+    time: 0.5,
+    curve: "ease-in-out"
+  });
+
+  animationDetailHide = new Animation({
+    layer: detail,
+    properties: {
+      x: myHeight(50)
+    },
+    time: 0.5,
+    curve: "ease-in-out"
+  });
+
+  showMain = function() {
+    main.visible = true;
+    return detail.visible = false;
+  };
+
   main.on(Events.Click, function(event, layer) {
-    print("Clicked main");
     main.visible = false;
-    return detail.visible = true;
+    detail.visible = true;
+    return animationDetailShow.start();
   });
 
   detail.on(Events.Click, function(event, layer) {
-    print("Clicked detail");
-    main.visible = true;
-    return detail.visible = false;
+    animationDetailHide.start();
+    return animationA.on(Events.AnimationEnd, showMain());
   });
 
   main.visible = true;
