@@ -1,5 +1,5 @@
 (function() {
-  var bg, detail, device, dp, main;
+  var animationDetailHide, animationDetailShow, bg, detail, device, dp, main;
 
   dp = 4;
 
@@ -23,20 +23,36 @@
   });
 
   detail = new Layer({
-    x: 0,
+    x: 360 * dp,
     width: Screen.width,
     height: Screen.height,
     image: "images/View2.png"
   });
 
+  animationDetailShow = new Animation({
+    layer: detail,
+    properties: {
+      x: 0
+    },
+    time: 0.5,
+    curve: "ease-in-out"
+  });
+
+  animationDetailHide = new Animation({
+    layer: detail,
+    properties: {
+      x: 360 * dp
+    },
+    time: 0.5,
+    curve: "ease-in-out"
+  });
+
   main.on(Events.Click, function(event, layer) {
-    return detail.bringToFront();
+    return animationDetailShow.start();
   });
 
   detail.on(Events.Click, function(event, layer) {
-    return main.bringToFront();
+    return animationDetailHide.start();
   });
-
-  main.bringToFront();
 
 }).call(this);

@@ -16,17 +16,31 @@ main = new Layer
     image:"images/View1.png"
 
 detail = new Layer
-    x: 0
+    x: 360*dp
     width: Screen.width
     height: Screen.height
     image:"images/View2.png"
 
+animationDetailShow = new Animation
+    layer: detail
+    properties:
+        x: 0
+    time: 0.5
+    curve: "ease-in-out"
+
+animationDetailHide = new Animation
+    layer: detail
+    properties:
+        x: 360*dp
+    time: 0.5
+    curve: "ease-in-out"
+    
 # Set events
 main.on Events.Click, (event, layer) ->
-    detail.bringToFront()
+    animationDetailShow.start()
 
 detail.on Events.Click, (event, layer) ->
-    main.bringToFront()
+    animationDetailHide.start()
     
 # Initial
-main.bringToFront()
+
