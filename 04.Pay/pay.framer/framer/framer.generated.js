@@ -374,9 +374,9 @@ window.__imported__["Untitled/layers.json.js"] = [
   }
 ]
 if (typeof(DeviceComponent) !== "undefined") {DeviceComponent.Devices["iphone-6-silver"].deviceImageJP2 = false};
-window.Framer.Defaults.DeviceView = {"deviceScale":0.25,"selectedHand":"","deviceType":"samsung-galaxy-note-5-gold","contentScale":1,"orientation":0};
+window.Framer.Defaults.DeviceView = {"deviceScale":0.25,"selectedHand":"iphone-hands-2","deviceType":"samsung-galaxy-note-5-gold","contentScale":1,"orientation":0};
 
-window.Framer.Defaults.DeviceComponent = {"deviceScale":0.25,"selectedHand":"","deviceType":"samsung-galaxy-note-5-gold","contentScale":1,"orientation":0};
+window.Framer.Defaults.DeviceComponent = {"deviceScale":0.25,"selectedHand":"iphone-hands-2","deviceType":"samsung-galaxy-note-5-gold","contentScale":1,"orientation":0};
 
 window.FramerStudioInfo = {"deviceImagesUrl":"\/_server\/resources\/DeviceImages","documentTitle":"pay.framer"};
 
