@@ -1,7 +1,5 @@
 (function() {
-  var PSD, bg, device, dp;
-
-  dp = 4;
+  var PSD, device, scroll;
 
   device = new Framer.DeviceView();
 
@@ -11,10 +9,14 @@
 
   device.contentScale = 1;
 
-  bg = new BackgroundLayer({
-    backgroundColor: "white"
-  });
-
   PSD = Framer.Importer.load("imported/Scroll");
+
+  scroll = ScrollComponent.wrap(PSD.List);
+
+  scroll.scrollHorizontal = false;
+
+  scroll.parent = PSD.Screen;
+
+  PSD.BottomBar.bringToFront();
 
 }).call(this);

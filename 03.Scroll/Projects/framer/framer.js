@@ -23094,7 +23094,9 @@
 	    if (ref = this._deviceType, indexOf.call(BuiltInDevices, ref) < 0) {
 	      return name;
 	    }
-	    resourceUrl = "//resources.framerjs.com/static/DeviceResources";
+	    //khlee
+        //resourceUrl = "//resources.framerjs.com/static/DeviceResources";
+        resourceUrl = "./framer/images";  
 	    if (Utils.isFramerStudio() && window.FramerStudioInfo) {
 	      if (this._device.minStudioVersion && Utils.framerStudioVersion() >= this._device.minStudioVersion || !this._device.minStudioVersion) {
 	        if (this._device.maxStudioVersion && Utils.framerStudioVersion() <= this._device.maxStudioVersion || !this._device.maxStudioVersion) {
@@ -23393,7 +23395,8 @@
 	
 	  DeviceComponent.prototype.handImageUrl = function(hand) {
 	    var resourceUrl;
-	    resourceUrl = "//resources.framerjs.com/static/DeviceResources";
+	    //khell resourceUrl = "//resources.framerjs.com/static/DeviceResources";
+        resourceUrl = "./framer/images";
 	    if (Utils.isFramerStudio() && window.FramerStudioInfo && Utils.framerStudioVersion() >= newDeviceMinVersion) {
 	      resourceUrl = window.FramerStudioInfo.deviceImagesUrl;
 	    }
